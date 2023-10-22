@@ -1,0 +1,19 @@
+/*
+const searchWords = ["이미진", "권성진"];
+const message = "테스트";
+searchWords.forEach(async (searchWord) => {
+await searchAndSendMessage(searchWord, message);
+});
+
+    for (const key in object) {
+        if (Object.hasOwnProperty.call(object, key)) {
+            const element = object[key];
+            
+        }
+    }
+*/
+const searchWords = ["이미진", "권성진"];
+const message = "테스트";
+for (const searchWord of searchWords) {
+await searchAndSendMessage(searchWord, message);
+}
