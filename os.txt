@@ -1,0 +1,11 @@
+const os = require('os');
+
+(async () => {
+    console.log(os.type()); //
+    if (os.type() == "Darwin") {
+        screen.config.resourceDirectory = "inputs/mac";
+    }
+    else {
+        screen.config.resourceDirectory = "inputs/win";
+    }
+})();
