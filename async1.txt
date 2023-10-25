@@ -1,0 +1,21 @@
+async function test (i) {
+    console.log("test");
+    return "a"
+}
+
+(async () => {
+    
+    promise = test(1);
+    console.log(promise);
+    console.log("1");
+    console.log(await promise);
+    console.log("2");
+})();
+
+/*
+test
+Promise { 'a' }
+1
+a
+2
+*/
