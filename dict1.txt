@@ -1,0 +1,11 @@
+```
+const test = ({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "";
+
+console.log(test({isActive: true, isPending: true})); //pending
+
+
+
+{ "isActive", "isPending" }["isActive"] //['isActive']
+
+{ "isActive", "isPending" }["isPending"] //['isPending']
+```
