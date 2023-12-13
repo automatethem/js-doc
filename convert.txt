@@ -1,0 +1,7 @@
+
+parseInt
+Number(s)
+String(n)
+https://www.freecodecamp.org/korean/news/how-to-convert-a-string-to-a-number-in-javascript/
+parseString
+https://enjoytools.net/xe/board_fPnc93/1235
