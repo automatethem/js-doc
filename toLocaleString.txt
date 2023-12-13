@@ -1,0 +1,9 @@
+
+//How to Add a Thousandths Place Comma (Every Three Digits) in JavaScript  
+(1000).toLocaleString('en-US');
+// 1,000
+(1000000).toLocaleString('en-US');
+// 1,000,000
+(100).toLocaleString('en-US');
+// 100
+https://typeofnan.dev/how-to-add-thousandths-place-comma-every-three-digits-in-javascript/
