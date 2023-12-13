@@ -1,0 +1,7 @@
+
+자리수 맞추기  
+숫자.toFixed(원하는 소수점 자리수(0~20));  
+const number = 0.12345console.log(number.toFixed()); // 0  
+console.log(number.toFixed(2)); // 0.12  
+console.log(number.toFixed(7)); // 0.1234500    
+https://powerku.tistory.com/183
