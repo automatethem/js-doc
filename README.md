@@ -1,4 +1,4 @@
-# javascript-doc
+# js-doc
 
 TypeScript 클래스 vs JavaScript 클래스  
 https://til.younho9.dev/log/2021/javascript-oop-ts-vs-js-class/
