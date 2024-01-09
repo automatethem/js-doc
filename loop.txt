@@ -1,4 +1,6 @@
 /*
+1.
+
 const searchWords = ["이미진", "권성진"];
 const message = "테스트";
 searchWords.forEach(async (searchWord) => {
@@ -17,3 +19,23 @@ const message = "테스트";
 for (const searchWord of searchWords) {
 await searchAndSendMessage(searchWord, message);
 }
+
+
+2.
+
+//key
+    for (const key in ["a", "b"]) {
+        console.log(key);
+    }
+    /*
+0
+1
+
+//value
+for (const value of ["a", "b"]) {
+    console.log(value);
+}
+/*
+a
+b
+*/
