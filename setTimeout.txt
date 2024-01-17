@@ -1,0 +1,9 @@
+https://jin2rang.tistory.com/entry/setTimeout-clearTimeout
+
+function timer(){
+   console.log('3초뒤에 호출 될 코드입니다!!!');
+}
+
+var timerVar = setTimeout( timer, 3000);
+
+//clearTimeout(timerVar);
