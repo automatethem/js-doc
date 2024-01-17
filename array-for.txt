@@ -1,0 +1,13 @@
+https://karl27.tistory.com/11 [불확정한 세상:티스토리]
+
+var arr = [1, 2, 3, 4];
+console.log(arr.length);
+                for (const ele of arr) {
+                    
+                    delete arr[arr.indexOf(ele)];
+                }
+                console.log(arr.length);
+
+
+
+var one = arr.pop();
