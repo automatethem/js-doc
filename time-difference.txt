@@ -1,0 +1,4 @@
+difference seconds
+
+                    //const difference = Math.round(gamePeriodSeconds - (new Date() - bettingStartTime) / 1000);
+                    //var responseText = `${difference}초 후에 게임 진행!\n`;
