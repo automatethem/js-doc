@@ -15,3 +15,7 @@ https://www.programiz.com/javascript/online-compiler/
 
 온라인 자바스크립트  
 https://replit.com/languages/javascript
+
+## throw-error.png
+
+![](throw-error.png?raw=true)
