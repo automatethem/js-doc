@@ -5,8 +5,10 @@ today.setHours(today.getHours() + 1)
 console.log(today.toString());
 console.log(today.toLocaleString());
 /*
-Sat Jan 20 2024 03:42:48 GMT+0000 (Coordinated Universal Time)
-Sat Jan 20 2024 04:42:48 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 03:58:43 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:58:43 AM
+Sat Jan 20 2024 04:58:43 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 4:58:43 AM
 */
 
 //
@@ -18,8 +20,10 @@ today.setHours(today.getHours() + 9)
 console.log(today.toString());
 console.log(today.toLocaleString());
 /*
-Sat Jan 20 2024 03:43:27 GMT+0000 (Coordinated Universal Time)
-Sat Jan 20 2024 12:43:27 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 03:58:31 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:58:31 AM
+Sat Jan 20 2024 12:58:31 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 12:58:31 PM
 */
 
 //
@@ -31,8 +35,10 @@ today.setHours(0, 0, 0, 0);
 console.log(today.toString());
 console.log(today.toLocaleString());
 /*
-Sat Jan 20 2024 03:45:08 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 03:58:18 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:58:18 AM
 Sat Jan 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 12:00:00 AM
 */
 
 //
@@ -44,8 +50,10 @@ today.setHours(-1, 0, 0, 0);
 console.log(today.toString());
 console.log(today.toLocaleString());
 /*
-Sat Jan 20 2024 03:45:27 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 03:58:06 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:58:06 AM
 Fri Jan 19 2024 23:00:00 GMT+0000 (Coordinated Universal Time)
+1/19/2024, 11:00:00 PM
 */
 
 //
@@ -57,20 +65,28 @@ today.setHours(-9, 0, 0, 0);
 console.log(today.toString());
 console.log(today.toLocaleString());
 /*
-Sat Jan 20 2024 03:45:53 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 03:57:52 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:57:52 AM
 Fri Jan 19 2024 15:00:00 GMT+0000 (Coordinated Universal Time)
+1/19/2024, 3:00:00 PM
 */
 
 //
 
 const today = new Date();
-const timestamp = date.getTime();
+const timestamp = today.getTime();
 const d = new Date(timestamp);
 console.log(d.toString());
-//console.log(d.toLocaleString());
+console.log(d.toLocaleString());
 d.setHours(d.getHours() + 9)
-//console.log(d.toString());
-//console.log(d.toLocaleString());
+console.log(d.toString());
+console.log(d.toLocaleString());
+/*
+Sat Jan 20 2024 03:56:57 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 3:56:57 AM
+Sat Jan 20 2024 12:56:57 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 12:56:57 PM
+*/
 
 //////////
 
