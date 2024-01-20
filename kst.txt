@@ -142,3 +142,22 @@ Sat, 20 Jan 2024 11:08:57 GMT
 
 
 https://savvytime.com/converter/gmt-to-kst
+
+////////
+
+var d = new Date();
+console.log(d.toString()); 
+console.log(d.getHours()); 
+var timestamp = d.setHours(d.getHours() + 24);
+d = new Date(timestamp);
+console.log(d.toString()); 
+/*
+Sat Jan 20 2024 03:19:20 GMT+0000 (Coordinated Universal Time)
+3
+Sun Jan 21 2024 03:19:20 GMT+0000 (Coordinated Universal Time)
+*/
+
+setHours
+반환값(Return)
+number, 지정한 시간을 1970년 1월 1일을 기준으로 하는 밀리세컨드로 리턴
+https://opentutorials.org/course/50/159
