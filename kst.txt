@@ -38,3 +38,16 @@ console.log(d);
 console.log(d.toString());
 console.log(d.toLocaleString());
 console.log(d.toGMTString());
+console.log(d.toUTCString());
+console.log(d.toISOString());
+/*
+2024-01-20T11:08:57.274Z
+Sat Jan 20 2024 11:08:57 GMT+0000 (Coordinated Universal Time)
+1/20/2024, 11:08:57 AM
+Sat, 20 Jan 2024 11:08:57 GMT
+Sat, 20 Jan 2024 11:08:57 GMT
+2024-01-20T11:08:57.274Z
+*/
+
+
+https://savvytime.com/converter/gmt-to-kst
