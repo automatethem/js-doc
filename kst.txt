@@ -61,6 +61,17 @@ Sat Jan 20 2024 03:45:53 GMT+0000 (Coordinated Universal Time)
 Fri Jan 19 2024 15:00:00 GMT+0000 (Coordinated Universal Time)
 */
 
+//
+
+const today = new Date();
+const timestamp = date.getTime();
+const d = new Date(timestamp);
+console.log(d.toString());
+//console.log(d.toLocaleString());
+d.setHours(d.getHours() + 9)
+//console.log(d.toString());
+//console.log(d.toLocaleString());
+
 //////////
 
 https://www.freecodecamp.org/korean/news/how-to-format-dates-in-javascript/
