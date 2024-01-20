@@ -2,6 +2,8 @@ const today = new Date();
 console.log(today.toString());
 today.setHours(today.getHours() + 1)
 console.log(today.toString());
+today.setHours(today.getHours() + 9)
+console.log(today.toString());
 /*
 Sat Jan 20 2024 03:38:34 GMT+0000 (Coordinated Universal Time)
 Sat Jan 20 2024 04:38:34 GMT+0000 (Coordinated Universal Time)
