@@ -1,5 +1,14 @@
 const today = new Date();
 console.log(today.toString());
+today.setHours(today.getHours() + 1)
+console.log(today.toString());
+/*
+Sat Jan 20 2024 03:38:34 GMT+0000 (Coordinated Universal Time)
+Sat Jan 20 2024 04:38:34 GMT+0000 (Coordinated Universal Time)
+*/
+
+const today = new Date();
+console.log(today.toString());
 today.setHours(0, 0, 0, 0);
 console.log(today.toString());
 today.setHours(-1, 0, 0, 0);
@@ -13,16 +22,7 @@ Fri Jan 19 2024 23:00:00 GMT+0000 (Coordinated Universal Time)
 Thu Jan 18 2024 15:00:00 GMT+0000 (Coordinated Universal Time)
 */
 
-
-
-
-
-
-
-
-
-
-////////
+//////////
 
 https://www.freecodecamp.org/korean/news/how-to-format-dates-in-javascript/
 
