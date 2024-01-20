@@ -1,0 +1,40 @@
+
+https://www.freecodecamp.org/korean/news/how-to-format-dates-in-javascript/
+
+var d = new Date();
+console.log(d);
+console.log(d.toString());
+console.log(d.toLocaleString());
+console.log(d.toGMTString());
+console.log(d.toUTCString());
+console.log(d.toISOString());
+/*
+2024-01-20T01:54:52.947Z
+Sat Jan 20 2024 01:54:52 GMT+0000 (Coordinated Universal Time)
+1/20/2024
+1/20/2024, 1:54:52 AM
+Sat, 20 Jan 2024 01:54:52 GMT
+Sat, 20 Jan 2024 01:54:52 GMT
+2024-01-20T01:54:52.947Z
+*/
+
+!!
+https://bcoding-lab.tistory.com/361
+
+KST는 UTC보다 9시간 빠르다
+
+var d = new Date();
+var timestamp = d.setHours(d.getHours());
+console.log(timestamp); //1705716638157
+
+var d = new Date();
+var timestamp = d.setHours(d.getHours() + 9);
+console.log(timestamp); //1705749070848
+
+var d = new Date();
+var timestamp = d.setHours(d.getHours() + 9);
+d = new Date(timestamp);
+console.log(d);
+console.log(d.toString());
+console.log(d.toLocaleString());
+console.log(d.toGMTString());
