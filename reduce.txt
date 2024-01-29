@@ -1,3 +1,33 @@
 Reduce
 https://tocomo.tistory.com/26
 https://miiingo.tistory.com/365
+
+// 실제직업과 다릅니다.
+const friends = [
+  {
+    name: '양주진',
+    age: 32,
+    job: '코인러',
+    married: false,
+  },
+  {
+    name: '오영제',
+    age: 32,
+    job: '랩퍼',
+    married: false,
+  },
+  {
+    name: '서준형',
+    age: 32,
+    job: '2년차 유부남',
+    married: true,
+  }
+];
+
+// 3명의 나이를 더해봅니다.
+// 여기서 초기값 설정이 반드시 필요합니다.
+const ageSum = friends.reduce((accumulator, currentObject) => {
+  return accumulator + currentObject.age;
+}, 0);
+
+console.log('친구들 나이 합 ', ageSum);
