@@ -19,3 +19,7 @@ https://replit.com/languages/javascript
 ## throw-error.png
 
 ![](throw-error.png?raw=true)
+
+## reduce
+
+![](attach_files/reduce.png?raw=true)
