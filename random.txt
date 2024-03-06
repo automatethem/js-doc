@@ -1,0 +1,1 @@
+const stringSession = `solution-telegram-forward-client-app${Math.floor(Math.random() * 1000000 + 1)}`; //1 <= random <= 1000000
