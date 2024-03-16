@@ -1,0 +1,52 @@
+//https://github.com/automatethem-product-chat/solution-web-site-server-app/blob/main/app/api/chat/kakaotalk-open-chat/route.js
+
+const attendanceCommand = async (kakaotalkOpenChatSetting, me) => {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (new Date().getTimezoneOffset() == - 9 * 60) {
+        //console.log("kst");
+    }
+    else {
+        today = new Date();
+	    
+        today.setHours(today.getHours() + 9); //한국 기준 날짜
+        today.setHours(0, 0, 0, 0); 
+      
+        today.setHours(today.getHours() - 9); //
+    }
+	
+    const { data: attendanceLogs, error: attendanceError } = await supabase
+        .from('KakaotalkOpenChatAttendanceLog')
+        .select('*')
+        .eq('memberId', me.memberId)
+        .gte('date', today.toISOString())
+        .limit(1);
+
+    if (attendanceLogs.length === 0) {
+        const { error: logError } = await supabase
+            .from('KakaotalkOpenChatAttendanceLog')
+            .insert([
+                { memberId: me.memberId, date: new Date() }
+            ]);
+
+        await supabase
+            .from('KakaotalkOpenChatPointLog')
+            .insert([
+                { memberId: me.memberId, addPoint: kakaotalkOpenChatSetting.attendanceMessagePoint, currentPoint: me.point + kakaotalkOpenChatSetting.attendanceMessagePoint }
+            ]);
+
+        const { error: pointUpdateError } = await supabase
+            .from('KakaotalkOpenChatMember')
+            .update({ attendanceCount: me.attendanceCount + 1, point: me.point + kakaotalkOpenChatSetting.attendanceMessagePoint })
+            .eq('memberId', me.memberId);
+
+        //출석 완료! {attendance-message-point} 포인트가 적립되었습니다. 현재 포인트: {current-point} 포인트
+        const text = kakaotalkOpenChatSetting.attendanceMessage.replace("{attendance-message-point}", kakaotalkOpenChatSetting.attendanceMessagePoint).replace("{current-point}", me.point + kakaotalkOpenChatSetting.attendanceMessagePoint);
+        await deleteLogs();
+        return escapeText(text);
+    } 
+    else {
+        return escapeText('이미 출석하셨습니다. 하루에 한 번만 출석 가능합니다.');
+    }
+};
