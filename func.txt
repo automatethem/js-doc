@@ -1,0 +1,179 @@
+자바스크립트 함수 인수를 
+function(a, b) {
+}
+로 선언해 사용하는것과
+function({a, b}) {
+}
+로 사용하는것의 차이와 장단점을 알려주세요
+
+자바스크립트에서 함수 인수를 `function(a, b) {}` 방식으로 사용하는 것과 `function({a, b}) {}` 방식으로 사용하는 것은 매개변수를 받는 방식에서 차이가 있습니다.
+
+### `function(a, b) {}` 방식
+이 방식은 가장 전통적인 방법으로, 함수가 호출될 때 인수를 순서대로 받습니다. 각 인수는 함수 내부에서 해당 순서대로 접근할 수 있습니다.
+
+**장점:**
+- 간단하고 직관적입니다.
+- 인수의 순서가 중요할 때 유용합니다.
+
+**단점:**
+- 함수에 전달되는 인수의 개수가 많아지면, 각 인수가 무엇을 의미하는지 코드를 읽는 사람이 기억하기 어려워질 수 있습니다.
+- 선택적 인수를 다룰 때 불편할 수 있으며, 인수를 생략하거나 기본값을 사용하려면 추가 로직이 필요할 수 있습니다.
+
+### `function({a, b}) {}` 방식
+이 방식은 ES6의 구조 분해 할당(destructuring assignment)을 사용하여 객체의 속성을 함수의 인수로 직접 매핑하는 방식입니다. 호출 시에는 객체 리터럴을 인수로 전달하며, 함수 내부에서는 객체의 속성으로 접근합니다.
+
+**장점:**
+- 인수의 순서에 상관없이 명시적으로 값을 전달할 수 있어 코드의 가독성이 좋아집니다.
+- 선택적 인수를 다루기 편리합니다. 특정 인수를 생략해도 함수가 정상적으로 동작하며, 기본값 설정도 간단합니다.
+- 함수를 호출할 때 인수에 명명된 속성을 사용함으로써, 어떤 값이 어떤 인수로 사용되는지 명확하게 할 수 있습니다.
+
+**단점:**
+- 함수를 호출할 때 객체 리터럴을 사용해야 하므로, 간단한 함수 호출이 약간 더 복잡해질 수 있습니다.
+- 호출하는 측에서 객체의 속성 이름을 정확히 알아야 하므로, 함수의 사용법을 익히는 데 약간의 학습 곡선이 있을 수 있습니다.
+
+### 결론
+`function(a, b) {}` 방식은 함수의 인수가 명확하고, 순서가 중요할 때 잘 맞습니다. 반면, `function({a, b}) {}` 방식은 인수의 개수가 많거나, 선택적 인수를 다루거나, 함수 호출 시 코드의 가독성을 중시할 때 유리합니다. 상황에 따라 적절한 방식을 선택하여 사용하면 됩니다.
+
+====
+
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/add-tool-v0.0.1.js
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/coin-price-tool-v0.0.3.js
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/coin-price-tool-v0.0.3.js
+
+
+const createAddTool = () => {
+    const addTool = new DynamicStructuredTool({
+      name: "add",
+      description: "Add two integers together.",
+      schema: z.object({
+        firstInt: z.number(),
+        secondInt: z.number(),
+      }),
+      func: async ({ firstInt, secondInt }) => {
+        return (firstInt + secondInt).toString();
+      },
+    });
+
+    return addTool;
+};
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/serp-search-tool-v0.0.8.js
+
+const createSerpSearchTool = (apiKey) => {
+    const serpSearchTool = new SerpAPI(apiKey, {
+      hl: "ko",
+      gl: "kr",
+    });
+
+
+    return serpSearchTool;
+};
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/supabase-retriever-tool-v0.0.9.js
+
+var client = null;
+const getSupabaseVectorStore = (tableName, queryName, model) => {
+    if (!client)
+        client = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL,
+            process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY,
+        );
+    if (!model)
+        model="text-embedding-ada-002";
+    const embedding = new OpenAIEmbeddings({model, openAIApiKey: process.env.OPENAI_API_KEY});
+    const vectorStore = new SupabaseVectorStore(
+      embedding, 
+      {
+        client,
+        tableName: tableName,
+        queryName: queryName
+      }
+    );
+    return vectorStore;
+}
+
+const createSupabaseRetrieverTool = ({tableName, queryName, name, description}) => {
+    if (!tableName)
+        tableName = "documents";
+    if (!queryName)
+        queryName = "match_documents";
+    if (!name)
+        name = "search_state_of_union";
+    if (!description)
+        description = "Searches and returns documents regarding the state-of-the-union.";
+
+    const vectorStore = getSupabaseVectorStore(tableName, queryName)
+    const retriever = vectorStore.asRetriever();
+    //console.log(await vectorStore.similaritySearch("크랜배리 챗봇 제작 회사에 대해 소개 해주세요."));
+    //console.log(await retriever.invoke("크랜배리 챗봇 제작 회사에 대해 소개 해주세요."));
+    //console.log(await retriever.getRelevantDocuments("크랜배리 챗봇 제작 회사에 대해 소개 해주세요."));
+    
+    const retrieverTool = createRetrieverTool(
+        retriever, 
+        {
+            name: name,
+            description: description
+        }
+    );
+
+    return retrieverTool;
+}
+
+export default createSupabaseRetrieverTool;
+
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/tavilysearch-tool-v0.0.5.js
+
+const createTavilysearchTool = ({ apiKey }) => {
+    const tavilysearchTool = new TavilySearchResults({ apiKey: apiKey, maxResults: 1 });
+    return tavilysearchTool;
+};
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/vector-retriever-async-tool-v0.0.2.js
+
+const createVectorRetrieverAsyncTool = async ({name, description, directory}) => {
+    if (!name)
+        name = "search_state_of_union";
+    if (!description)
+        description = "Searches and returns documents regarding the state-of-the-union.";
+    if (!directory)
+        directory = "vector";
+
+    //const vectorStore = await FaissStore.load(
+    const vectorStore = await HNSWLib.load(
+        directory,
+        new OpenAIEmbeddings()
+    );
+
+https://github.com/automatethem-product-langchain/langchainjs-basic-app/blob/main/langchain-agent-tools/webbrowser-tool-v0.0.5.js
+
+const createWebbrowserTool = ({openAIApiKey}) => {
+    const model = new ChatOpenAI({ 
+      openAIApiKey: openAIApiKey,
+      temperature: 0 
+    });
+    const embeddings = new OpenAIEmbeddings({
+      openAIApiKey: openAIApiKey
+    });
+    const webbrowserTool = new WebBrowser({ model, embeddings });
+
+    return webbrowserTool;
+};
+
+https://github.com/automatethem-js-chatgpt-chat/chatgpt-chat-chat-app-nodejs/blob/main/index.js
+
+const apiKey = process.env.OPENAI_API_KEY;
+const openai = new OpenAI({ apiKey: apiKey });
+    
+----
+
+https://github.com/openai/openai-python
+
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
