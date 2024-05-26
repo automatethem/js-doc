@@ -10,3 +10,6 @@ const getData = async () => {
   }
 };
 https://velog.io/@bae-sh/%EA%B3%B5%EA%B3%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0-API%EB%A5%BC-%ED%86%B5%ED%95%B4-%ED%99%98%EC%9C%A8%EC%9D%84-%EB%B0%9B%EC%95%84%EC%98%A4%EC%9E%90
+
+Js try-catch
+https://javascript.info/try-catch
