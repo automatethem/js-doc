@@ -1,0 +1,4 @@
+Static method
+
+정적 메서드와 정적 프로퍼티
+https://ko.javascript.info/static-properties-methods
