@@ -1,3 +1,5 @@
+//https://github.com/automatethem-dev/ns-screen-capture-client-app/blob/main/main/work/autobell-detail-work/index.js#L368
+
 const s = '[현대] 더 뉴아반떼MD 1.6 GDi 프리미엄';
 console.log(s); // [현대] 더 뉴아반떼MD 1.6 GDi 프리미엄
 
