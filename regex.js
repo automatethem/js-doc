@@ -1,4 +1,3 @@
-
 const s = '[현대] 더 뉴아반떼MD 1.6 GDi 프리미엄';
 console.log(s); // [현대] 더 뉴아반떼MD 1.6 GDi 프리미엄
 
@@ -6,10 +5,17 @@ console.log(s); // [현대] 더 뉴아반떼MD 1.6 GDi 프리미엄
 const makerNames = s.matchAll(/\[(.+?)\]/g);
 console.log(makerNames);
 
+/*
 for (const makerName of makerNames) {
     console.log(makerName[0]); // 대괄호 포함
     console.log(makerName[1]);
 }
+*/
+///*
+const makerName = makerNames.next();
+console.log(makerName.value[0]);
+console.log(makerName.value[1]);
+//*/
 
 /*
 [현대] 더 뉴아반떼MD 1.6 GDi 프리미엄
@@ -17,6 +23,14 @@ Object [RegExp String Iterator] {}
 [현대]
 현대
 */
+/*
+[현대] 더 뉴아반떼MD 1.6 GDi 프리미엄
+Object [RegExp String Iterator] {}
+[현대]
+현대
+*/
+
+
 
 
 ---
