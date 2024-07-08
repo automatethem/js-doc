@@ -1,0 +1,19 @@
+
+https://bluepnume.medium.com/every-known-way-to-get-references-to-windows-in-javascript-223778bede2d
+
+!!
+[자바스크립트] 부모창과 자식창 정보 교환
+https://marshallku.com/dev/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%B6%80%EB%AA%A8%EC%B0%BD%EA%B3%BC-%EC%9E%90%EC%8B%9D%EC%B0%BD-%EC%A0%95%EB%B3%B4-%EA%B5%90%ED%99%98
+
+
+[JavaScript] window.open(), window.opener() 부모창 자식창 간의 제어 방법
+https://dev-handbook.tistory.com/44
+
+JavaScript / window.open / 새 창 띄우기, 부모 창과 자식 창 사이 값 전달하기
+https://www.codingfactory.net/12984
+
+Cross-window communication
+https://ko.javascript.info/cross-window-communication
+
+how to identify child window and close it using javascript
+https://coderanch.com/t/484428/languages/identify-child-window-close-javascript
